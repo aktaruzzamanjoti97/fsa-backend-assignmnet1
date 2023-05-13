@@ -1,4 +1,5 @@
 const { faker } = require('@faker-js/faker');
+const getRandomNumber = require('./randomNumber');
 
 const getPersonProfile = (arr) => {
     const values = Object.values(arr);
@@ -8,16 +9,16 @@ const getPersonProfile = (arr) => {
         if (values.includes(property)) {
             switch (property) {
                 case 'firstName':
-                    person.firstName = faker.name.firstName();
+                    person.firstName = faker.person.firstName();
                     break;
                 case 'lastName':
-                    person.lastName = faker.name.lastName();
+                    person.lastName = faker.person.lastName();
                     break;
                 case 'email':
                     person.email = faker.internet.email();
                     break;
                 case 'avatar':
-                    person.avatar = faker.image.imageUrl();
+                    person.avatar = faker.image.url();
                     break;
                 case 'age':
                     person.age = getRandomNumber(18, 65);
